@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 require 'pry'
+=======
+# your code goes here
+require 'pry'
+# your code goes here
+>>>>>>> 9d2dd897c0565d766a8b0b18a166bdf5dfa182af
 class Person
     # attr_reader :name
     # attr_accessor :balance, :happiness, :hygiene
 
+<<<<<<< HEAD
     def initialize(name)
         @name = name
         @bank_account = 25
@@ -22,12 +29,44 @@ class Person
 
     def happiness
         @happiness
+=======
+    def initialize(name, balance,happiness,hygiene)
+        if happiness < 0 || happiness > 10 || hygiene < 0 || hygiene > 10
+            puts "try again"
+        else 
+            @name = name 
+            @balance = balance
+            @happiness = happiness
+            @hygiene = hygiene
+        end
+    end
+
+    def check_requirements(num)
+        if num < 0 || num > 10
+            puts "try a diff number"
+        else
+            return num
+        end
+    end
+
+    def name 
+        @name
+    end
+
+    def balance
+        @balance
+    end
+
+    def happiness
+        @happiness 
+>>>>>>> 9d2dd897c0565d766a8b0b18a166bdf5dfa182af
     end
 
     def hygiene
         @hygiene
     end
 
+<<<<<<< HEAD
     def happiness=(number)
         @happiness = number
          if @happiness > 10
@@ -93,12 +132,52 @@ class Person
     def call_friend(friend)
         self.happiness += 3
         friend.happiness += 3
+=======
+
+    def gets_paid=(new_balance)
+        @balance += new_balance
+        puts "ALL ABOUT THE BENJAMINS"
+    end
+    
+    def happiness=(new_happiness)
+        @happiness = check_requirements(new_happiness)
+    end
+
+    def hygiene=(new_hygiene)
+        @hygiene = check_requirements(new_hygiene)
+    end
+    #binding.pry
+
+    def take_bath
+        @hygiene += 4
+        if @hygiene > 10
+            @hygiene = 10
+        end
+    end
+
+    def work_out
+        @happiness += 2
+        if @happiness > 10
+            @happiness = 10
+        end
+        @hygiene -= 3
+        if @hygiene < 0
+            @hygiene = 0
+        end
+    end
+
+    def call_friend(friend)
+        #binding.pry
+        self.happiness += 1
+        puts "Hi #{friend.name} It's #{self.name}. How are you?"
+>>>>>>> 9d2dd897c0565d766a8b0b18a166bdf5dfa182af
         if self.happiness > 10
             self.happiness = 10
         end
         if friend.happiness > 10
             friend.happiness = 10
         end
+<<<<<<< HEAD
         return "Hi #{friend.name}! It's #{self.name}. How are you?"
     end
 
@@ -147,3 +226,22 @@ end
 
 
 
+=======
+    end
+
+    def start_converstation(name, topic)
+        if topic == "politics"
+            self.happiness -= 1
+            name.happiness -= 1
+            self.happiness
+            puts "blah blah blah partisan"
+        elsif topic == "weather"
+            self.happiness += 1
+            name.happiness += 1
+            puts "blah blah blah sun"
+        else 
+            puts "blah blah blah"
+        end
+    end
+end
+>>>>>>> 9d2dd897c0565d766a8b0b18a166bdf5dfa182af
